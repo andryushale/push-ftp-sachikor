@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="sachiko.png"/>
+	<title>home | Sachiko Ragosta</title>
+
+
+	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+	<script type="text/javascript">
+	<!--
+	if (screen.width <= 699) {
+	document.location = "mobile.html";
+	}
+	//-->
+	</script>
+
+	<script language=javascript>
+	<!--
+	if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+	   location.replace("mobile.html");
+	}
+	-->
+	</script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#chapbook').hide();
+		$('main').height($(window).innerHeight() - $('footer').innerHeight());
+
+		var colors = ['4d367f', 'fd7bab', 'ff898b', '29254d', '793c50', '523678', '8972a3','d8678f','40353f', '1a0546', '4e6325', 'a96141', '381864', '516288', '804b74', '341736', '7a0b50', '0a320b', '021d29', '5f0df0', '470b13', '732431', 'cf557e', '815aa9'];
+		var colored = false;
+		var portrait = false;
+
+		$('#about #box .colorme').each(function(){
+			var color = colors[Math.floor(Math.random() * colors.length)];
+			var color2 = colors[Math.floor(Math.random() * colors.length)];
+
+			$(this).css({
+				'background': 	'#' + color,
+				'background': 	'linear-gradient(90deg, #'+ color + ', #' + color2 + ')'
+			});
+		});
+
+		$('#about #box .colorme').hover(function(){
+			if (!colored)
+			{
+				var color = colors[Math.floor(Math.random() * colors.length)];
+				var color2 = colors[Math.floor(Math.random() * colors.length)];
+				h = $(this).innerHeight / 3;
+				deg = 45 * Math.floor(Math.random() * 7);  
+				
+
+				$(this).css({
+					'background': '#' + color,
+					'background': 'linear-gradient(' + deg + 'deg, #'+ color + ', #' + color2 + ')',
+					'border': 	h + 'px solid',
+					'border-image-source': 	'linear-gradient(' + deg + 'deg, #' + color2 + ',transparent)'
+				});
+			}
+		});
+
+		$('.about').click(function(){
+
+			$('#about').show();
+			$('footer div').removeClass('show');
+			$('.pub').show();
+			$("#pubs").hide();
+			$('#chapbook').hide();
+
+			$('.colorme').css('background', '#d6ab6b');
+			$('footer').css('background-color', '#E3B505');
+			$('main').css('background-color', '#121416');
+			$('.innerka').css('background-color', '#121416');
+
+			$('#about #box .ta').text('about');
+			$('#about #box .ti').text('Sachiko Ragosta').css('font-style','italic');
+			$('#about #box .si').html('<script src="https://gist.github.com/andryushale/5ea6ebe7ce17dc8330d9bac6172096fb.js"></script>');
+			$('#about #box .ki').html("tw. ig. <u><a href=\"https://twitter.com/v3rsachiko\" target=\"_blank\">@v3rsachiko</a></u>\n<a href=\"contact.html\" class=\"contact\" target=\"_blank\">contact</a>");
+
+			//portrait
+
+			$('.innerka').css('gap', '0px 0px');
+
+			var w = $('.innerka').innerWidth();
+			var h = $('.innerka').innerHeight();
+
+			var sW = $('.ka1').innerWidth();
+			var sH = $('.ka1').innerHeight() - .333;
+
+			var c = 0;
+			var cW = 0;
+			var cH = 0;
+
+
+			$('.innerka > div').each(function(){
+				var rX = Math.floor(Math.random() * 6) - 3;
+				var rY = Math.floor(Math.random() * 4) - 2;
+				var S = (Math.floor(Math.random() * 40) + 50);
+				$(this).css({
+				'background-size': w + 'px ' + h + 'px',
+				'transform': 'rotateX(' + rX + 'deg) rotateY(' + rY + 'deg) scale(.' + S + ')'})
+			.addClass('transformed');
+		});
+
+
+			$('.innerka > div').each(function(){
+				$(this).css('background-image', 'url(\'new_portrait.jpeg\')');
+
+					cW = c%2; //odd or even, odd means don't drag left
+					cH = Math.floor(c/2); //how many sH worth to drag upwards
+
+				$(this).css(
+					'background-position',
+					 sW * cW * -1 + 'px '  // drag to the left
+					 +
+					 (sH * cH) * -1+ 'px'); // drag upwards 
+
+				c++;
+			});
+
+			portrait = true;
+			colored = true;
+		});
+
+		$('#about #box .innerka > div').on('mouseover', function(){
+			if (portrait)
+			{
+				$(this).css('transform', 'none').removeClass('transformed');
+
+				if ($(this).hasClass('ka5'))
+				{
+					$(this).html("<p>Headshot: Chris Bridges</p>");
+				}
+			}
+		});
+
+		$('.pub').click(function(){
+			$('footer div').removeClass('show');
+			$('#about').hide();
+			$('#chapbook').hide();
+			$('#pubs').show();
+			$('main').css('background-color', '#E4FDE1');
+			$('footer').css('background-color', '#E4FDE1');
+		});
+
+		$('.chapbook').click(function()
+		{
+			$('#about').hide();
+			$('#pubs').hide();
+			$('.pub').hide();
+			$('#chapbook').show();
+			$('footer div').addClass('show');
+			$('footer').css('background-color', '#f5f5f5');
+		});
+	});
+	</script>
+
+	<style type="text/css">
+	body
+	{
+		font-family: 'YuMincho' ,'Hiragino Mincho ProN','Hiragino Kaku Gothic ProN', sans-serif;
+		overflow-x: none;
+		margin: 0px;
+		padding: 0px;
+	}
+	*
+	{
+	  box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	*, a
+	{
+		cursor: url('cursor_reach.png'), auto;
+	}
+	a:hover
+	{
+		cursor: url('cursor_grasp.png'), auto;
+	}
+	a:visited, a
+	{
+		text-decoration: none;
+		color: #121416;
+	}
+	a.contact
+	{
+		cursor: pointer;
+		border: 1px solid black;
+		border-radius: 5px;
+		padding: 5px;
+		letter-spacing: 0px;
+		float: right;
+		font-weight: bold;
+		margin-right: 15px;
+	}
+	a.contact:hover
+	{
+		color: #FFF;
+		background-color: #822b2e;
+		border-color: #822b2e;
+	}
+	a.contact::after
+	{
+		content: ' >';
+	}
+	/* footer */
+	footer
+	{
+		position: fixed;
+		left: 0px;
+		bottom: 0px;
+		width: 100vw;
+		padding: 25px 50px;
+		background: #E3B505;
+		border: 2px solid #121416;
+		max-height: 104px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas:
+			'name publications enter_chapbook';
+	}
+	footer div
+	{
+		display: inline-block;
+		height: 50px;
+		padding: 0px 30px;
+	}
+	footer div:hover
+	{
+		color: #fff;
+		text-decoration: underline;
+	}
+	footer .about
+	{
+		grid-area: name;
+		text-align: left;
+	}
+	footer .pub
+	{
+		text-align: center;
+		grid-area: publications;
+	}
+	footer .chapbook
+	{
+		text-align: right;
+		font-size: 18px;
+		grid-area: enter_chapbook;
+	}
+	footer .push
+	{
+		line-height: 50px;
+		font-size: 26px;
+	}
+	footer span
+	{
+		cursor: url('cursor_grasp.png'), auto;
+	}
+
+	/* grid insanity */
+
+	main
+	{
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+		color: #1e1e1e;
+		background-color: #E3B505;
+	}
+	#about
+	{
+		width: 100%;
+		height: 100%;
+		display: grid;
+		grid-template-columns: 40px auto 40px;
+		grid-template-rows: 40px auto 40px;
+		grid-template-areas:
+			"a 1 b"
+			"2 box 3"
+			"c 4 d";
+		gap: 5px 5px;
+	}
+	#about div.flex
+	{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* border area */ 
+
+	#about div.colora
+	{	
+		background-color: #8F0000;
+	}
+	#about div.colorb
+	{	
+		background-color: #E5EBF0;
+	}
+	#about .a
+	{
+		grid-area: a;
+	}
+	#about .b
+	{
+		grid-area: b;
+	}
+	#about .c
+	{
+		grid-area: c;
+	}
+	#about .d
+	{
+		grid-area: d;
+	}
+
+	/* box for index and about*/
+	#about #box
+	{
+		grid-area: box;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 2.5fr 2.5fr 2fr;
+		grid-template-areas:
+			"ta sa ka"
+			"ti si ka"
+			"ti si ka"
+			"tu su ki";
+		gap: 5px 5px;
+	}
+	#about #box .ta
+	{
+		grid-area: ta;
+	}
+	#about #box .ta, #about #box .ti
+	{
+		text-align: right;
+		font-weight: 800;
+		font-size: 35px;
+		padding: 0px 15px;
+	}
+	#about #box .si
+	{
+		background-color: #a94d50 !important;
+		color: #E5EBF0;
+		letter-spacing: 2px;
+	}
+	#about #box .sa
+	{
+		grid-area: sa;
+	}
+	#about #box .ka
+	{
+		grid-area: ka;
+	}
+		#about #box .innerka
+		{
+			grid-column: 3 / 4;
+			grid-row: 1 / 4;
+			background-color: #E3B505;
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			grid-template-areas:
+				"ka1 ka2"
+				"ka3 ka4"
+				"ka5 ka6";
+			gap: 5px 5px;
+			perspective: 60px;
+		}
+		.transformed
+		{
+			transform-style: preserve-3d;
+		}
+		#about #box .innerka .ka1
+		{
+			grid-area: ka1;
+		}
+		#about #box .innerka .ka2
+		{
+			grid-area: ka2;
+		}
+		#about #box .innerka .ka3
+		{
+			grid-area: ka3;
+		}
+		#about #box .innerka .ka4
+		{
+			grid-area: ka4;
+		}
+		#about #box .innerka .ka5, #about #box .innerka .ka5 a
+		{
+			grid-area: ka5;
+			font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+			color: #822b2e;
+			text-decoration: underline;
+			font-weight: bold;
+			text-align: left;
+			font-size: 14px;
+		}
+		#about #box .innerka .ka5 p
+		{
+			position: relative;
+			top: 70px;
+			padding: 5px 10px 5px 10px;
+			display: block;
+		}
+		#about #box .innerka .ka6
+		{
+			grid-area: ka6;
+		}
+	#about #box .ti
+	{
+		grid-area: ti;
+	}
+	#about #box .si
+	{
+		grid-area: si;
+		padding: 15px 5px;
+		text-align: left;
+		font-size: 17px;
+	}
+	#about #box .ki
+	{
+		grid-area: ki;
+
+		padding: 15px 5px;
+		text-align: left;
+		font-size: 17px;
+		white-space: pre-wrap;
+	}
+	#about #box .tu
+	{
+		grid-area: tu;
+	}
+	#about #box .su
+	{
+		grid-area: su;
+	}
+
+
+	/* box for pubs*/
+	#pubs
+	{
+		display: none;
+		padding: 25px 50px;
+		text-align: left;
+		line-height: 2;
+	}
+
+	#pubs h1
+	{
+		text-decoration: underline;
+	}
+
+	#pubs::selection, #pubs::-webkit-selection, #pubs *::selection, #pubs *::-webkit-selection
+	{
+		background-color: #FFA282 !important; 
+		color: #fff !important;
+		cursor: url('cursor_stick.png'), auto;
+		border: none;
+	}
+	#pubs a
+	{
+		text-decoration: none;
+		color: #121416;
+		padding: 3px;
+		border: 1px solid #121416;
+		user-select: none;
+		-webkit-select: none;
+	}
+	#pubs a:hover
+	{
+		border: 1px solid #E4FDE1;
+		text-decoration: underline;
+	}
+
+	.colorme::selection, .colorme *::selection, .colorme::-webkit-selection, .colorme *::-webkit-selection
+	{
+		background-color: #822b2e !important; 
+		color: #fff !important;
+		cursor: url('cursor_stick.png'), auto;
+	}
+
+	/* abundance, containment */
+
+	#chapbook
+	{
+		width: 100vw;
+		height: 100vh;
+		background: #f5f5f5;
+		padding: 50px;
+	}
+	#chapbook #author
+	{
+		grid-area: author;
+		color: #db232d;
+		font-size: 2vw;
+		text-align: left;
+		align-self: start;
+	}
+	#chapbook #trigger
+	{
+		display: block;
+		font-family: 'DotGothic16', monospace;
+		margin-top: 80px;
+		color: #0d0d0d;
+		animation-name: float;
+		animation-duration: 4s;
+		animation-iteration-count: infinite;
+		line-height: 3;
+	}
+	@keyframes float
+	{
+		0% {margin-top: 80px;}
+		50% {margin-top: 100px;}
+		100% {margin-top: 80px;}
+	}
+	.show:hover
+	{
+		color: #f5f5f5;
+		font-family: 'DotGothic16', monospace;
+		-webkit-text-stroke: 2px #0d0d0d;
+		text-decoration: none;
+		text-transform: lowercase;
+	}
+	</style>
+</head>
+<body>
+	<main>
+		<section id="pubs">
+			<h1>Fiction </h1>
+				2024 <a href="">You Are too Full to be Emptied</a> Forthcoming in <i>Intergalactic Gaysians Anothology</i> 
+				<br/>
+				August 2023 <a href="https://apex-magazine.com/short-fiction/but-i-loved-you/">But I Loved You</a> <i>Apex Magazine</i>
+				<br/>
+			<h1>Non-fiction </h1>
+				October 2022 <a href="https://www.feministpress.org/books-a-m/it-came-from-the-closet">On Beauty and Necrosis</a> in <i>It Came From the Closet: Queer Reflections on Horror,</i> from Feminist Press
+				<br/>
+				March 2021 <a href="https://msmagazine.com/2021/03/11/abortion-reproductive-health-cisgender-women-trans-men-transgender-nonbinary/">Abortion Care Is Not Just for Cis Women</a> <i>Ms. Magazine</i>
+				<br/>
+			<h1>Interviews, etc. </h1>
+				August 2023 <a href="https://apex-magazine.com/interviews-2/interview-with-author-sachiko-ragosta/">Interview with Author Sachiko Ragosta</a> <i>Apex Magazine</i> 
+				<br/>
+		</section>
+
+		<section id="about">
+			<div class="a colora flex"></div>
+			<div class="b colora flex"></div>
+			<div class="c colora flex"></div>
+			<div class="d colora flex"></div>
+
+			<div class="1 colorb flex"></div>
+			<div class="2 colorb flex"></div>
+			<div class="3 colorb flex"></div>
+			<div class="4 colorb flex"></div>
+
+			<div id="box">
+				<div class="ta colorme"></div>
+				<div class="sa colorme"></div>
+				<div class="ka colorme"></div>
+
+				<div class="ti colorme"></div>
+				<div class="si colorme"></div>
+				<div class="ka colorme"></div>
+
+				<div class="ti colorme"></div>
+				<div class="si colorme"></div>
+				<div class="ka colorme"></div>
+
+				<div class="tu colorme"></div>
+				<div class="su colorme"></div>
+				<div class="ki colorme"></div>
+
+				<div class="innerka">
+					<div class="ka1 colorme"></div>
+					<div class="ka2 colorme"></div>
+					<div class="ka3 colorme"></div>
+					<div class="ka4 colorme"></div>
+					<div class="ka5 colorme"></div>
+					<div class="ka6 colorme"></div>
+				</div>
+			</div>
+		</section>
+		<section id="chapbook">
+			<a id="trigger" href="the-mythology-of-blood-and-boyhood.html">Content warning: violence and war.<br/>Click to proceed.</a>
+		</section>
+	</main>
+	<footer>
+		<div class="about push"><span>Sachiko Ragosta</span></div>
+		<div class="chapbook">
+			<span>THE MYTHOLOGY<br/> OF BLOOD AND BOYHOOD</span>
+		</div>
+		<div class="pub push"><span>Publications</span></div>
+	</footer>
+</body>
+</html>
