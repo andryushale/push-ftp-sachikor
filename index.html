@@ -28,7 +28,11 @@
 
 	<script type="text/javascript">
 	$(document).ready(function(){
+		//import gists
 		var bioText = $('#file-bio-html-LC1').text();
+		var pubsText = $('#file-pubs-html-LC1').text();
+		$('#pubs').html(pubsText);
+
 		$('#chapbook').hide();
 		$('main').height($(window).innerHeight() - $('footer').innerHeight());
 
@@ -79,7 +83,6 @@
 
 			$('#about #box .ta').text('about');
 			$('#about #box .ti').text('Sachiko Ragosta').css('font-style','italic');
-			console.log('7');
 			$('#about #box .si').html(bioText);
 			$('#about #box .ki').html("tw. ig. <u><a href=\"https://twitter.com/v3rsachiko\" target=\"_blank\">@v3rsachiko</a></u>\n<a href=\"contact.html\" class=\"contact\" target=\"_blank\">contact</a>");
 
@@ -536,19 +539,6 @@
 <body>
 	<main>
 		<section id="pubs">
-			<h1>Fiction </h1>
-				2024 <a href="">You Are too Full to be Emptied</a> Forthcoming in <i>Intergalactic Gaysians Anothology</i> 
-				<br/>
-				August 2023 <a href="https://apex-magazine.com/short-fiction/but-i-loved-you/">But I Loved You</a> <i>Apex Magazine</i>
-				<br/>
-			<h1>Non-fiction </h1>
-				October 2022 <a href="https://www.feministpress.org/books-a-m/it-came-from-the-closet">On Beauty and Necrosis</a> in <i>It Came From the Closet: Queer Reflections on Horror,</i> from Feminist Press
-				<br/>
-				March 2021 <a href="https://msmagazine.com/2021/03/11/abortion-reproductive-health-cisgender-women-trans-men-transgender-nonbinary/">Abortion Care Is Not Just for Cis Women</a> <i>Ms. Magazine</i>
-				<br/>
-			<h1>Interviews, etc. </h1>
-				August 2023 <a href="https://apex-magazine.com/interviews-2/interview-with-author-sachiko-ragosta/">Interview with Author Sachiko Ragosta</a> <i>Apex Magazine</i> 
-				<br/>
 		</section>
 
 		<section id="about">
@@ -592,6 +582,7 @@
 		<section id="chapbook">
 			<a id="trigger" href="the-mythology-of-blood-and-boyhood.html">Content warning: violence and war.<br/>Click to proceed.</a>
 			<div class="script"><script src="https://gist.github.com/andryushale/5ea6ebe7ce17dc8330d9bac6172096fb.js"></script></div>
+			<script src="https://gist.github.com/andryushale/757f350e2c14c1547d00c19895a26c12.js"></script>
 		</section>
 	</main>
 	<footer>
