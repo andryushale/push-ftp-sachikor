@@ -30,6 +30,7 @@
 	$(document).ready(function(){
 		$('#chapbook').hide();
 		$('main').height($(window).innerHeight() - $('footer').innerHeight());
+		$('#about #box .si script').hide();
 
 		var colors = ['4d367f', 'fd7bab', 'ff898b', '29254d', '793c50', '523678', '8972a3','d8678f','40353f', '1a0546', '4e6325', 'a96141', '381864', '516288', '804b74', '341736', '7a0b50', '0a320b', '021d29', '5f0df0', '470b13', '732431', 'cf557e', '815aa9'];
 		var colored = false;
@@ -78,7 +79,7 @@
 
 			$('#about #box .ta').text('about');
 			$('#about #box .ti').text('Sachiko Ragosta').css('font-style','italic');
-			$('#about #box .si').html("\<script src=\'https://gist.github.com/andryushale/5ea6ebe7ce17dc8330d9bac6172096fb.js\'\>\</script\>");
+			$('#about #box .si script').show();
 			$('#about #box .ki').html("tw. ig. <u><a href=\"https://twitter.com/v3rsachiko\" target=\"_blank\">@v3rsachiko</a></u>\n<a href=\"contact.html\" class=\"contact\" target=\"_blank\">contact</a>");
 
 			//portrait
@@ -563,7 +564,7 @@
 				<div class="ka colorme"></div>
 
 				<div class="ti colorme"></div>
-				<div class="si colorme"></div>
+				<div class="si colorme"><script src="https://gist.github.com/andryushale/5ea6ebe7ce17dc8330d9bac6172096fb.js"></script></div>
 				<div class="ka colorme"></div>
 
 				<div class="ti colorme"></div>
